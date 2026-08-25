@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Multi-Account Social Dashboard</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Multi-Account Dashboard</h1>
+    <p class="subtitle">Privacy-first • All data stays in your browser</p>
+    <div id="extension-status" class="status unknown">Checking extension…</div>
+  </header>
+
+  <main>
+    <section id="install-prompt" class="card hidden">
+      <h2>Extension Required</h2>
+      <p>Install the companion Chrome/Edge extension to enable one-click switching and session management.</p>
+      <ol>
+        <li>Load the extension unpacked (see README) or install from the Chrome Web Store once published.</li>
+        <li>Copy the Extension ID from <code>chrome://extensions</code>.</li>
+        <li>Paste it below and save.</li>
+      </ol>
+      <div class="row">
+        <input type="text" id="ext-id-input" placeholder="Extension ID (32 chars)" maxlength="32" />
+        <button id="save-ext-id">Save ID</button>
+      </div>
+      <p class="note">For testing: load unpacked → copy ID → paste here. The ID is stored only in localStorage.</p>
+    </section>
+
+    <section id="dashboard" class="hidden">
+      <div class="toolbar">
+        <button id="btn-add" class="primary">+ Add Account</button>
+        <button id="btn-export">Export Data</button>
+        <button id="btn-clear" class="danger">Delete All Local Data</button>
+      </div>
+
+      <div id="accounts-grid" class="grid"></div>
+      <p id="empty-state" class="empty">No accounts yet. Click “Add Account”.</p>
+    </section>
+  </main>
+
+  <!-- Add Account Modal -->
+  <div id="modal" class="modal hidden">
+    <div class="modal-content">
+      <h2>Add Account</h2>
+      <label>Platform
+        <select id="platform">
+          <option value="whatsapp">WhatsApp</option>
+          <option value="facebook">Facebook</option>
+          <option value="instagram">Instagram</option>
+          <option value="twitter">X / Twitter</option>
+          <option value="discord">Discord</option>
+          <option value="telegram">Telegram</option>
+          <option value="google">Google Messages</option>
+        </select>
+      </label>
+      <label>Custom Name
+        <input type="text" id="account-name" placeholder="e.g. Work WhatsApp" maxlength="40" />
+      </label>
+      <div class="modal-actions">
+        <button id="modal-cancel">Cancel</button>
+        <button id="modal-save" class="primary">Add & Open</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>Zero tracking • Zero servers • Open & auditable</p>
+    <a href="#" id="privacy-link">Privacy Policy</a>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+{
+  "manifest_version": 3,
+  "name": "Multi-Account Social Dashboard Engine",
+  "version": "1.0.0",
+  "description": "Privacy-first multi-account session helper for WhatsApp, Facebook, Instagram, X, Discord, Telegram and Google Messages. All data stays local.",
+  "permissions": [
+    "storage",
+    "tabs",
+    "cookies",
+    "scripting",
+    "browsingData"
+  ],
+  "host_permissions": [
+    "https://web.whatsapp.com/*",
+    "https://*.whatsapp.com/*",
+    "https://www.facebook.com/*",
+    "https://*.facebook.com/*",
+    "https://www.instagram.com/*",
+    "https://*.instagram.com/*",
+    "https://x.com/*",
+    "https://*.x.com/*",
+    "https://twitter.com/*",
+    "https://*.twitter.com/*",
+    "https://discord.com/*",
+    "https://*.discord.com/*",
+    "https://web.telegram.org/*",
+    "https://*.telegram.org/*",
+    "https://messages.google.com/*",
+    "https://*.google.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "externally_connectable": {
+    "matches": [
+      "http://localhost/*",
+      "http://127.0.0.1/*",
+      "https://*.github.io/*",
+      "file://*/*"
+    ]
+  },
+  "action": {
+    "default_title": "Multi-Account Dashboard",
+    "default_popup": "popup.html"
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}
